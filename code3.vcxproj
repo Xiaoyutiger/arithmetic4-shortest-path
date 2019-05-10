@@ -129,6 +129,10 @@
     <ClCompile Include="head.h" />
     <ClCompile Include="Johnson.cpp" />
     <ClCompile Include="main1.cpp" />
+    <ClCompile Include="USTimer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="USTimer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

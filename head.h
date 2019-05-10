@@ -1,4 +1,4 @@
-#define Vertexnum 100
+#define Vertexnum 5
 #define Edgenum 3000
 #define Maxint 1000
 #define weightdif 20

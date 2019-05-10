@@ -1,5 +1,6 @@
 #include "head.h"
 #include "Fibheap.h"
+#include "USTimer.h"
 
 int main() {
 	
@@ -79,6 +80,8 @@ int main() {
 	int P1[Vertexnum + 1][Vertexnum + 1];
 	int P2[Vertexnum + 1][Vertexnum + 1];
 	Chainhead G[Vertexnum + 1];
+	USTimer usT;
+	double duringUS[3];
 
 	time_t beginTime[3], endTime[3], duration[3];
 	time_t totaldu1[3], maxdu[3];
@@ -93,23 +96,37 @@ int main() {
 
 
 		beginTime[0] = clock();
+		usT.start();
 		InitGraph(Weight1, G);
+		usT.end();
 		endTime[0] = clock();
+		duringUS[0] = usT.costTime;
+		usT.reset();
+
 
 		beginTime[1] = clock();
+		usT.start();
 		int nonegetiveweight = Johnson(Weight1, P1, G);
+		usT.end();
 		endTime[1] = clock();
-
+		duringUS[1] = usT.costTime;
+		usT.reset();
 
 		beginTime[2] = clock();
+		usT.start();
 		FW(Weight2, P2);
+		usT.end();
 		endTime[2] = clock();
+		duringUS[2] = usT.costTime;
+		usT.reset();
+
 
 		for (int i = 0; i < 3; i++) {
 			duration[i] = endTime[i] - beginTime[i];
 			foutputT << duration[i];
 			foutputT << ',';
 			cout << duration[i] << "\t";
+			cout << "UStime: " << duringUS[i] << '\t';
 		}
 		foutputT << endl;
 		cout << endl;
